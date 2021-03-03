@@ -135,3 +135,76 @@ function winDiagonal() {
     paint('diagRight');
   }
 }
+
+function paint(typeOfWin) {
+  let cells = [];
+  for (var i = 0; i < cell.length; i++){
+    cells.splice(i, 1 ,cell[i].textContent);
+  }
+switch (typeOfWin) {
+  case 'row0':
+    cell[0].style.background = 'yellow';
+    cell[1].style.background = 'yellow';
+    cell[2].style.background = 'yellow';
+    cell[0].style.color = 'black';
+    cell[1].style.color = 'black';
+    cell[2].style.color = 'black';
+    break;
+  case 'row1':
+    cell[3].style.background = 'yellow';
+    cell[4].style.background = 'yellow';
+    cell[5].style.background = 'yellow';
+    cell[3].style.color = 'black';
+    cell[4].style.color = 'black';
+    cell[5].style.color = 'black';
+    break;
+  case 'row2':
+    cell[6].style.background = 'yellow';
+    cell[7].style.background = 'yellow';
+    cell[8].style.background = 'yellow';
+    cell[6].style.color = 'black';
+    cell[7].style.color = 'black';
+    cell[8].style.color = 'black';
+    break;
+  case 'col0':
+    cell[0].style.background = 'yellow';
+    cell[3].style.background = 'yellow';
+    cell[6].style.background = 'yellow';
+    cell[0].style.color = 'black';
+    cell[3].style.color = 'black';
+    cell[6].style.color = 'black';
+    break;
+  case 'col1':
+    cell[1].style.background = 'yellow';
+    cell[4].style.background = 'yellow';
+    cell[7].style.background = 'yellow';
+    cell[1].style.color = 'black';
+    cell[4].style.color = 'black';
+    cell[7].style.color = 'black';
+    break;
+  case 'col2':
+    cell[2].style.background = 'yellow';
+    cell[5].style.background = 'yellow';
+    cell[8].style.background = 'yellow';
+    cell[2].style.color = 'black';
+    cell[5].style.color = 'black';
+    cell[8].style.color = 'black';
+    break;
+  case 'diagRight':
+    cell[2].style.background = 'yellow';
+    cell[4].style.background = 'yellow';
+    cell[6].style.background = 'yellow';
+    cell[2].style.color = 'black';
+    cell[4].style.color = 'black';
+    cell[6].style.color = 'black';
+    break;
+  case 'diagLeft':
+    cell[0].style.background = 'yellow';
+    cell[4].style.background = 'yellow';
+    cell[8].style.background = 'yellow';
+    cell[0].style.color = 'black';
+    cell[4].style.color = 'black';
+    cell[8].style.color = 'black';
+    break;
+  }
+}
