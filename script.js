@@ -55,3 +55,83 @@ function newGame() {
     ['', '', '']
   ];
 }
+
+function rowIs(row, val) {
+    return row.every(function(el){
+      return el == val;
+  });
+}
+
+function columnIs(column, val) {
+  return column.every(function(el){
+    return el == val;
+  });
+}
+
+function makeCol() {
+  columns = [
+    [],
+    [],
+    []
+  ];
+  for (var i = 0; i < field.length; i++) {
+    columns[0].push(field[i][0]);
+    columns[1].push(field[i][1]);
+    columns[2].push(field[i][2]);
+  }
+}
+
+function winRow() {
+  for (var i = 0; i < field.length; i++) {
+    if (rowIs(field[i], 'X')) {
+      paint(`row${i}`);
+    }
+    else if (rowIs(field[i], 'O')) {
+      paint(`row${i}`);
+    }
+  }
+}
+
+function winColumn() {
+  makeCol();
+  for (var i = 0; i < columns.length; i++) {
+    if (columnIs(columns[i], 'X')){
+      paint(`col${i}`);
+    }
+    else if (columnIs(columns[i], 'O')) {
+      paint(`col${i}`);
+    }
+  }
+}
+
+function winDiagonal() {
+  let j = 0;
+  let XCounterLeft = 0;
+  let OcounterLeft = 0;
+  let XCounterRight = 0;
+  let OcounterRight = 0;
+  for (var i = 0; i < field.length; i++) {
+    if (field[i][i] == 'X'){
+      XCounterLeft++;
+    }
+    else if (field[i][i] == 'O') {
+      OcounterLeft++;
+    }
+  }
+  for (var i = 2; i > -1; i--) {
+    if (field[j][i] == 'X'){
+      XCounterRight++;
+      j++;
+    }
+    else if (field[j][i] == 'O') {
+      OcounterRight++;
+      j++;
+    }
+  }
+  if (XCounterLeft == 3 || OcounterLeft == 3) {
+    paint('diagLeft');
+  }
+  else if(XCounterRight == 3 || OcounterRight == 3){
+    paint('diagRight');
+  }
+}
