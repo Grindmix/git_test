@@ -29,6 +29,8 @@ function turn(row, column) {
   winDiagonal();
 }
 
+//
+
 function newGame() {
   let input = document.getElementById('cellSize');
   let value = input.value.trim();
