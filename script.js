@@ -28,3 +28,30 @@ function turn(row, column) {
   winColumn();
   winDiagonal();
 }
+
+function newGame() {
+  let input = document.getElementById('cellSize');
+  let value = input.value.trim();
+  if (value != '') {
+    for (var i = 0; i < cell.length; i++) {
+      cell[i].style.width = `${value}px`;
+      cell[i].style.height = `${value}px`;
+      cell[i].style.background = 'grey';
+      cell[i].style.color = 'white';
+      cell[i].textContent = '';
+    }
+  }
+  else{
+    for (var i = 0; i < cell.length; i++) {
+      cell[i].style.background = 'grey';
+      cell[i].style.color = 'white';
+      cell[i].textContent = '';
+    }
+  }
+  turnOrder = true;
+  field = [
+    ['', '', ''],
+    ['', '', ''],
+    ['', '', '']
+  ];
+}
